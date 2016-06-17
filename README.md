@@ -80,7 +80,7 @@ EXACT AUDIO COPY (EAC) SETUP
 Press F11 or use the menus: EAC =\] Compression Options. Once on the Compression options dialog box, under the External Compression tab, set the fields as follows:
 
 1. Parameter passing scheme: User Defined Encoder
-2. Use file extension: the file extension of the first encoder you are going to use(\*)
+2. Use file extension: the file extension of the first encoder you are going to use(*)
 3. Program, including path, used for compression: MAREO’s full path
 4. Additional command line options: mareo.ini %s %d "%a" "%g" "%t" "%n" %y "%m"
 5. Add ID3 tag: unchecked
@@ -88,7 +88,7 @@ Press F11 or use the menus: EAC =\] Compression Options. Once on the Compression
 
 IMPORTANT: double quotes (") are used to enclose parameters that can have spaces inside. EAC automatically encloses source (%s) and destination (%d) file names with double quotes (") if required so it is not needed in either case.
 
-(\*): If you want MAREO to rename all the files, you must cheat EAC. EAC gets confused when MAREO ends and it can’t find the encoded file to rename, as MAREO has already renamed it, so out of confusion EAC deletes the file that has matching extension with the one defined in EAC’s config! The workaround is to define EAC’s "Use file extension" to any one not being actually used, for example XXX. If you set the extension to XXX, EAC can’t find any matching file, and it goes ok. (You can also set EAC’s naming scheme to one different that the one MARE would use, like only album - track (%C - %N). Anyone would work, as MAREO would be renaming).
+(*): If you want MAREO to rename all the files, you must cheat EAC. EAC gets confused when MAREO ends and it can’t find the encoded file to rename, as MAREO has already renamed it, so out of confusion EAC deletes the file that has matching extension with the one defined in EAC’s config! The workaround is to define EAC’s "Use file extension" to any one not being actually used, for example XXX. If you set the extension to XXX, EAC can’t find any matching file, and it goes ok. (You can also set EAC’s naming scheme to one different that the one MARE would use, like only album - track (%C - %N). Anyone would work, as MAREO would be renaming).
 
 PLEXTOOLS PROFESSIONAL XL SETUP
 =============================================
@@ -340,25 +340,25 @@ mareo.exe mareo.ini "c:\\temp\\track.wav" "c:\\temp\\track.flac" "Queen" "A Nigh
 
 MAREO starts, it loads each parameter into the specific \[PLACEHOLDER\], and then it opens mareo.ini. It skips the all the comments, till it gets to the first general option line:
 
-\* PaddingZeros = 2
+* PaddingZeros = 2
 MAREO immediately creates a \[PLACEHOLDER\] called \[trackpadded\] by adding two zeros at the left of the track number, and then cuting the rightmost two characters. In this case, 11 becomes 11, as it is already a 2 chars string, but if \[track\] had been 4, \[trackpadded\] would have been 04.
 
 It then reads general option line:
-\* LogToScreen = TRUE
+* LogToScreen = TRUE
 This line just tells MAREO that we want it to log to the screen.
 
 It then reads general option line:
-\* LogToFile = TRUE
+* LogToFile = TRUE
 This line just tells MAREO that we want it to log to a txt file, called mareo.log.
 
 It then reads general option line:
-\* DeleteWavFile = FALSE
+* DeleteWavFile = FALSE
 This line tells MAREO when it finish with the encoder orders, we don’t want it to delete the original wav file.
 
 Now MAREO has read the general options, and it continues to read the INI file, searching for encoder orders.
 
 The first encoder order it finds, is:
-
+```
 ; —————————————————————————————————————————
 ; FLAC ENCODER ORDER
 ; —————————————————————————————————————————
@@ -369,20 +369,21 @@ EXTENSION = flac
 ENCODEREXE = c:\\encoders\\flac.exe
 PARAMETERS = -5 "\[source\]" -o "\[DESTTMP\]" -T artist="\[artist\]" -T album="\[album\]" -T title="\[title\]" -T tracknumber="\[track\]" -T date="\[year\]" -T genre="\[genre\]"
 RENAME = FALSE
+```
 
-\* The first action line, EXECUTEIF = TRUE, is set to true, so it know it must execute this encoder order.
-\* The second action line, FINALPATH = \[PERSONAL\]\\Music\\\[artist\] - \[album\]\\, is transformed by MAREO into "C:\\My Documents\\Music\\Queen - A Night At The Opera\\", and assigned to the \[FINALPATH\] \[PLACEHOLDER\].
-\* The third action line, FINALNAME = \[track\]. \[title\], is transformed by MAREO into "11. Bohemian Rhapsody", and assigned to the \[FINALNAME\] \[PLACEHOLDER\].
-\* The fourth action line, EXTENSION = flac, tells MAREO to assign "flac" to the \[EXTENSION\] \[PLACEHOLDER\].
+* The first action line, EXECUTEIF = TRUE, is set to true, so it know it must execute this encoder order.
+* The second action line, FINALPATH = \[PERSONAL\]\\Music\\\[artist\] - \[album\]\\, is transformed by MAREO into "C:\\My Documents\\Music\\Queen - A Night At The Opera\\", and assigned to the \[FINALPATH\] \[PLACEHOLDER\].
+* The third action line, FINALNAME = \[track\]. \[title\], is transformed by MAREO into "11. Bohemian Rhapsody", and assigned to the \[FINALNAME\] \[PLACEHOLDER\].
+* The fourth action line, EXTENSION = flac, tells MAREO to assign "flac" to the \[EXTENSION\] \[PLACEHOLDER\].
 
 MAREO then creates the \[FINALFULLNAME\] \[PLACEHOLDER\], which consists of \[FINALPATH\] + \\ + \[FINALNAME\] + . + \[EXTENSION\].
 MAREO also creates the \[DESTTMPFULLNAME\] placeholder, which consists of \[DESTTMPPATH\] + \\ + \[DESTTMPNAME\] + . + \[EXTENSION\].
 
-\* The fifth action line, tells MAREO the location and name of the encoder: "c:\\encoders\\flac.exe"
-\* The sixth action line, tells MAREO the parameters we need to pass to the encoder. MAREO reads it, and replaces all the \[PLACEHOLDERS\], with the correct values, transforming it into:
+* The fifth action line, tells MAREO the location and name of the encoder: "c:\\encoders\\flac.exe"
+* The sixth action line, tells MAREO the parameters we need to pass to the encoder. MAREO reads it, and replaces all the \[PLACEHOLDERS\], with the correct values, transforming it into:
 -5 "c:\\temp\\track.wav" -o "c:\\temp\\track.flac" -T artist="Queen" -T album="A Night At The Opera" -T title="Bohemian Rhapsody" -T tracknumber="11" -T date="1975" -T genre="Rock"
 
-\* Last action line, RENAME = FALSE, tells MAREO not to rename the resulting file, as it would be done by someone else, probably the ripper itself.
+* Last action line, RENAME = FALSE, tells MAREO not to rename the resulting file, as it would be done by someone else, probably the ripper itself.
 
 MAREO is now ready to execute the encoder order. It calls the encoder as:
 
@@ -393,7 +394,7 @@ Flac.exe runs, and it generates c:\\temp\\track.flac.
 MAREO knows it must not rename the file, so it leaves it there, so the ripper can take care of it.
 
 MAREO then reads the next encoder order:
-
+```
 ; —————————————————————————————————————————
 ; OGG VORBIS ENCODER ORDER
 ; —————————————————————————————————————————
@@ -404,7 +405,7 @@ EXTENSION = ogg
 ENCODEREXE = c:\\encoders\\oggenc.exe
 PARAMETERS = -q 4.25 "\[source\]" -o "\[DESTTMP\]" -a "\[artist\]" -l "\[album\]" -t "\[title\]" -N "\[track\]" -d "\[year\]" -G "\[genre\]"
 RENAME = TRUE
-
+```
 EXECUTEIF is TRUE, so MAREO executes oggenc.exe, as:
 
 c:\\encoders\\oggenc.exe -q 4.25 "c:\\temp\\track.wav" -o " c:\\temp\\track.ogg" -a "Queen" -l "A Night At The Opera" -t "Bohemian Rhapsody" -N 11 -d 1975 -G "Rock"
@@ -419,8 +420,8 @@ PRE-PROCESSORS
 Pre-processors are programs that process a file, before the actual encoding occurs. The most common example being WaveGain. WaveGain is a tool that can take a wav file, and "normalize" the sound volume as defined by the user. This has the effect of having all the sound files at the same volume. With MAREO, we can make WaveGain normalize the wav files before doing the encodes. It is commonly set up as the first encoder order, so all the subsequent encodes start with a wav file already normalized.
 
 To use WaveGain with MAREO then set the encoder order as:
-
-; \*\*\* WAVEGAIN PRE-PROCESSING EXAMPLE \*\*\*
+```
+; *** WAVEGAIN PRE-PROCESSING EXAMPLE ***
 EXECUTEIF = TRUE
 FINALPATH = NONE
 FINALNAME = NONE
@@ -428,7 +429,7 @@ EXTENSION = NONE
 ENCODEREXE = wavegain.exe
 PARAMETERS = -radio -apply -noclip "\[source\]"
 RENAME = FALSE
-
+```
 NOTICE the action line "RENAME = NONE". This tells MAREO not to rename the wav file to anything, in effect leaving the original and temporal wav file ready to be encoded.
 
 Wavegain runs only in "TRACK MODE".
@@ -439,14 +440,14 @@ POST-PROCESSORS
 Post-Processors are programs that process a file after an encoding has occurred. The most common example is MP3Gain. Like Wavegain, MP3Gain is a tool that can take an mp3 file, and "normalize" the sound volume as defined by the user. This has the effect of having all the sound files at the same volume. But MP3Gain normalizes MP3 files, and no WAV files, so we must run it after the MP3 encode. MP3Gain should normally be set up as the next encoder before the MP3 one.
 
 Assuming the mp3 file compression options was set as follows:
-
+```
 FINALPATH = C:\\Music\\\[artist\] - \[album\]\\
 FINALNAME = \[track\]. \[title\]
 EXTENSION = mp3
-
+```
 To use MP3Gain with MAREO then, set the encoder order after the MP3 has been generated as:
-
-; \*\*\* MP3Gain POST-PROCESSING EXAMPLE \*\*\*
+```
+; *** MP3Gain POST-PROCESSING EXAMPLE ***
 EXECUTEIF = TRUE
 FINALPATH = C:\\Music\\\[artist\] - \[album\]\\
 FINALNAME = \[track\]. \[title\]
@@ -454,7 +455,7 @@ EXTENSION = mp3
 ENCODER = mp3gain.exe
 PARAMETERS = /k /r /s r \[destfinalfullname\]
 RENAME = FALSE
-
+```
 NOTICE the action line "RENAME = FALSE". This tells MAREO to not try to rename the MP3 file to anything, in effect leaving the MP3 file name as it was.
 
 Why if renaming is not used, we still need to define PATH, FILENAME, EXTENSION? MAREO pre-process the PATH, FILENAME, and removes any non legal characters. So a original file name as "example: this is it" is transformed by MAREO to "example\_ this is it".
@@ -465,22 +466,22 @@ ALBUM MODE: RUNNING AFTER ALL THE TRACKS
 There could be occasions where you would like to run a certain encoder (most likey a post-processor), after all the files have been processed. The most common situation, is to run MP3Gain in ALBUM mode.
 
 Assuming the mp3 file compression options was set as follows:
-
+```
 FINALPATH = C:\\Music\\\[artist\] - \[album\]\\
 FINALNAME = \[track\]. \[title\]
 EXTENSION = mp3
-
+```
 To do run MP3Gain in album mode, you need to define an "encoder order" like this:
-
-; \*\*\* MP3Gain POST-PROCESSING EXAMPLE \*\*\*
+```
+; *** MP3Gain POST-PROCESSING EXAMPLE ***
 EXECUTEIF = LASTTRACK
 FINALPATH = C:\\Music\\\[artist\] - \[album\]\\
 FINALNAME = \[track\]. \[title\]
 EXTENSION = mp3
 ENCODER = mp3gain.exe
-PARAMETERS = /k /a /s r \[finalpath**short**\]\\\*.mp3
+PARAMETERS = /k /a /s r \[finalpath**short**\]\\*.mp3
 RENAME = TRUE
-
+```
 Again, we still need to define PATH, FILENAME, EXTENSION because MAREO use them to create \[FINALPATH\].
 
 But here you can see that we are using \[FINALPATH**SHORT**\] why and what is it?
@@ -521,8 +522,8 @@ Multi-File Encoders are encoders that generate two or more files from a single W
 Basically, one can use the small lossy file to listen to the music, but if the need to recover the original file arises, these encoders can take the info on the lossy file, and with the info on the correction file, produce an exact copy of the original.
 
 This is an alternative of having a lossless FLAC file for archival, and a lossy MP3 file for playing. The advantage of hybrid encoders, is that usually the lossy+correction files size equals the size of a lossless only file. The most common hybrid encoders are WavPack and OptimFrog. If we want to use MAREO with an encoder that generates 2 files (ore more), we need to create two encoder orders, one for each file:
-
-; \*\* NORMAL FILE\*\*
+```
+; ** NORMAL FILE**
 EXECUTEIF = TRUE
 FINALPATH = C:\\Music\\\[artist\] - \[album\]\\
 FINALNAME = \[track\]. \[title\]
@@ -531,7 +532,7 @@ ENCODER = ofs.exe
 PARAMETERS = -correction "\[source\]"
 RENAME = TRUE
 
-; \*\* CORRECTION FILE (RENAME ONLY) \*\*
+; ** CORRECTION FILE (RENAME ONLY) **
 EXECUTEIF = TRUE
 FINALPATH = C:\\Music\\\[artist\] - \[album\]\\
 FINALNAME = \[track\]. \[title\]
@@ -539,7 +540,7 @@ EXTENSION = ofc
 ENCODER = NONE
 PARAMETERS = NONE
 RENAME = TRUE
-
+```
 When MAREO encounters ENCODER = NONE it does not executes anything, and then renames the OFC file (created by ofs.exe on the previous encoder order) to the correct name.
 
 This is it. Happy ripping!
