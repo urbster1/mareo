@@ -74,7 +74,7 @@ INIFILE SOURCE DESTTMP ARTIST ALBUM TITLE TRACK YEAR GENRE 1 .. N
 
 Lets see some ripper setup examples.
 
-EXACT AUDIO COPY (EAC) SETUP (screen shot)
+EXACT AUDIO COPY (EAC) SETUP
 ==========================================
 
 Press F11 or use the menus: EAC =\] Compression Options. Once on the Compression options dialog box, under the External Compression tab, set the fields as follows:
