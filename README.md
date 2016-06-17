@@ -479,7 +479,7 @@ FINALPATH = C:\Music\[artist] - [album]\
 FINALNAME = [track]. [title]
 EXTENSION = mp3
 ENCODER = mp3gain.exe
-PARAMETERS = /k /a /s r [finalpath**short**]\*.mp3
+PARAMETERS = /k /a /s r [finalpathshort]\*.mp3
 RENAME = TRUE
 ```
 Again, we still need to define PATH, FILENAME, EXTENSION because MAREO use them to create \[FINALPATH\].
