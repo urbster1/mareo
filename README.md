@@ -1,28 +1,4 @@
 # mareo
-
-Try pandoc!
-
-pandoc --from html --to markdown_github
-
-  from
-
-to
-
--   
-
-    [<span>home</span>]
--   [<span>download</span>]
--   [<span>support</span>]
--   [<span>mail</span>]
-
-•
-
-•
-
-•
-
-•
-
 [MAREO: Multiple Applications Runner for EAC and Others]
 --------------------------------------------------------
 
