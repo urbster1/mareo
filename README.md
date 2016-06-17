@@ -1,19 +1,8 @@
 # MAREO
--   
-
-    [<span>home</span>](http://webearce.com.ar/ "home")
--   [<span>download</span>](https://hydrogenaud.io/index.php?PHPSESSID=v40obis8lgupf2oi1i2vn6ee13&action=dlattach;topic=59569.0;attach=7064 "downlaod")
--   [<span>support</span>](http://www.hydrogenaudio.org/forums/index.php?s=&showtopic=44559&view=findpost&p=391888 "support")
--   [<span>mail</span>](http://mail.google.com/hosted/webearce.com.ar "mail")
-
-•
-
-•
-
-•
-
-•
-
+[<span>home</span>](http://webearce.com.ar/ "home")
+[<span>download</span>](https://hydrogenaud.io/index.php?PHPSESSID=v40obis8lgupf2oi1i2vn6ee13&action=dlattach;topic=59569.0;attach=7064 "downlaod")
+[<span>support</span>](http://www.hydrogenaudio.org/forums/index.php?s=&showtopic=44559&view=findpost&p=391888 "support")
+[<span>mail</span>](http://mail.google.com/hosted/webearce.com.ar "mail")
 [MAREO: Multiple Applications Runner for EAC and Others](http://webearce.com.ar/?p=2 "Permalink")
 -------------------------------------------------------------------------------------------------
 
