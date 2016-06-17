@@ -183,7 +183,7 @@ But first, some introduction to \[PLACEHOLDERS\].
 
 For example, when ripping the eleventh track of Queen’s "Bohemian Rhapsody", MAREO could receive:
 ```
-mareo.ini "c:\\temp\\track.wav" "c:\\temp\\track.ogg" "Queen" "A Night At The Opera" "Bohemian Rhapsody" "11" 1975 "Rock"
+mareo.ini "c:\temp\track.wav" "c:\temp\track.ogg" "Queen" "A Night At The Opera" "Bohemian Rhapsody" "11" 1975 "Rock"
 ```
 MAREO would take each parameter, and load it on the corresponding \[PLACEHOLDER\]:
 
@@ -205,11 +205,11 @@ Latter, when processing the configuration INI, each time MAREO encounters a \[PL
 
 For example, if we are telling MAREO that the command line parameters for the oggenc.exe encoder are:
 ```
--q 4.25 "\[source\]" -o "\[desttmp\]" -a "\[artist\]" -l "\[album\]" -t "\[title\]" -N \[track\] -d \[year\] -G "\[genre\]"
+-q 4.25 "[source]" -o "[desttmp]" -a "[artist]" -l "[album]" -t "[title]" -N [track] -d [year] -G "[genre]"
 ```
 MAREO would read it to:
 ```
--q 4.25 "c:\\temp\\track.wav" -o " c:\\temp\\track.ogg" -a "Queen" -l "A Night At The Opera" -t "Bohemian Rhapsody" -N 11 -d 1975 -G "Rock"
+-q 4.25 "c:\temp\track.wav" -o " c:\temp\track.ogg" -a "Queen" -l "A Night At The Opera" -t "Bohemian Rhapsody" -N 11 -d 1975 -G "Rock"
 ```
 The list of \[PLACEHOLDERS\] that MAREO recognizes is:
 
@@ -344,15 +344,15 @@ MAREO starts, it loads each parameter into the specific \[PLACEHOLDER\], and the
 MAREO immediately creates a \[PLACEHOLDER\] called \[trackpadded\] by adding two zeros at the left of the track number, and then cuting the rightmost two characters. In this case, 11 becomes 11, as it is already a 2 chars string, but if \[track\] had been 4, \[trackpadded\] would have been 04.
 
 It then reads general option line:
-* LogToScreen = TRUE
+`LogToScreen = TRUE`
 This line just tells MAREO that we want it to log to the screen.
 
 It then reads general option line:
-* LogToFile = TRUE
+`LogToFile = TRUE`
 This line just tells MAREO that we want it to log to a txt file, called mareo.log.
 
 It then reads general option line:
-* DeleteWavFile = FALSE
+`DeleteWavFile = FALSE`
 This line tells MAREO when it finish with the encoder orders, we don’t want it to delete the original wav file.
 
 Now MAREO has read the general options, and it continues to read the INI file, searching for encoder orders.
@@ -363,11 +363,11 @@ The first encoder order it finds, is:
 ; FLAC ENCODER ORDER
 ; —————————————————————————————————————————
 EXECUTEIF = TRUE
-FINALPATH = \[PERSONAL\]\\Music\\\[artist\] - \[album\]\\
-FINALNAME = \[track\]. \[title\]
+FINALPATH = [PERSONAL]\Music\[artist] - [album]\
+FINALNAME = [track]. [title]
 EXTENSION = flac
-ENCODEREXE = c:\\encoders\\flac.exe
-PARAMETERS = -5 "\[source\]" -o "\[DESTTMP\]" -T artist="\[artist\]" -T album="\[album\]" -T title="\[title\]" -T tracknumber="\[track\]" -T date="\[year\]" -T genre="\[genre\]"
+ENCODEREXE = c:\encoders\flac.exe
+PARAMETERS = -5 "[source]" -o "[DESTTMP]" -T artist="[artist]" -T album="[album]" -T title="[title]" -T tracknumber="[track]" -T date="[year]" -T genre="[genre]"
 RENAME = FALSE
 ```
 
@@ -399,11 +399,11 @@ MAREO then reads the next encoder order:
 ; OGG VORBIS ENCODER ORDER
 ; —————————————————————————————————————————
 EXECUTEIF = TRUE
-FINALPATH = \[PERSONAL\]\\Music\\\[artist\] - \[album\]\\
-FINALNAME = \[track\]. \[title\]
+FINALPATH = [PERSONAL]\Music\[artist] - [album]\
+FINALNAME = [track]. [title]
 EXTENSION = ogg
-ENCODEREXE = c:\\encoders\\oggenc.exe
-PARAMETERS = -q 4.25 "\[source\]" -o "\[DESTTMP\]" -a "\[artist\]" -l "\[album\]" -t "\[title\]" -N "\[track\]" -d "\[year\]" -G "\[genre\]"
+ENCODEREXE = c:\encoders\oggenc.exe
+PARAMETERS = -q 4.25 "[source]" -o "[DESTTMP]" -a "[artist]" -l "[album]" -t "[title]" -N "[track]" -d "[year]" -G "[genre]"
 RENAME = TRUE
 ```
 EXECUTEIF is TRUE, so MAREO executes oggenc.exe, as:
@@ -427,7 +427,7 @@ FINALPATH = NONE
 FINALNAME = NONE
 EXTENSION = NONE
 ENCODEREXE = wavegain.exe
-PARAMETERS = -radio -apply -noclip "\[source\]"
+PARAMETERS = -radio -apply -noclip "[source]"
 RENAME = FALSE
 ```
 NOTICE the action line "RENAME = NONE". This tells MAREO not to rename the wav file to anything, in effect leaving the original and temporal wav file ready to be encoded.
@@ -441,19 +441,19 @@ Post-Processors are programs that process a file after an encoding has occurred.
 
 Assuming the mp3 file compression options was set as follows:
 ```
-FINALPATH = C:\\Music\\\[artist\] - \[album\]\\
-FINALNAME = \[track\]. \[title\]
+FINALPATH = C:\Music\[artist] - [album]\
+FINALNAME = [track]. [title]
 EXTENSION = mp3
 ```
 To use MP3Gain with MAREO then, set the encoder order after the MP3 has been generated as:
 ```
 ; *** MP3Gain POST-PROCESSING EXAMPLE ***
 EXECUTEIF = TRUE
-FINALPATH = C:\\Music\\\[artist\] - \[album\]\\
-FINALNAME = \[track\]. \[title\]
+FINALPATH = C:\Music\[artist] - [album]\
+FINALNAME = [track]. [title]
 EXTENSION = mp3
 ENCODER = mp3gain.exe
-PARAMETERS = /k /r /s r \[destfinalfullname\]
+PARAMETERS = /k /r /s r [destfinalfullname]
 RENAME = FALSE
 ```
 NOTICE the action line "RENAME = FALSE". This tells MAREO to not try to rename the MP3 file to anything, in effect leaving the MP3 file name as it was.
@@ -467,19 +467,19 @@ There could be occasions where you would like to run a certain encoder (most lik
 
 Assuming the mp3 file compression options was set as follows:
 ```
-FINALPATH = C:\\Music\\\[artist\] - \[album\]\\
-FINALNAME = \[track\]. \[title\]
+FINALPATH = C:\Music\[artist] -[album]\
+FINALNAME = [track]. [title]
 EXTENSION = mp3
 ```
 To do run MP3Gain in album mode, you need to define an "encoder order" like this:
 ```
 ; *** MP3Gain POST-PROCESSING EXAMPLE ***
 EXECUTEIF = LASTTRACK
-FINALPATH = C:\\Music\\\[artist\] - \[album\]\\
-FINALNAME = \[track\]. \[title\]
+FINALPATH = C:\Music\[artist] - [album]\
+FINALNAME = [track]. [title]
 EXTENSION = mp3
 ENCODER = mp3gain.exe
-PARAMETERS = /k /a /s r \[finalpath**short**\]\\*.mp3
+PARAMETERS = /k /a /s r [finalpath**short**]\*.mp3
 RENAME = TRUE
 ```
 Again, we still need to define PATH, FILENAME, EXTENSION because MAREO use them to create \[FINALPATH\].
@@ -525,17 +525,17 @@ This is an alternative of having a lossless FLAC file for archival, and a lossy 
 ```
 ; ** NORMAL FILE**
 EXECUTEIF = TRUE
-FINALPATH = C:\\Music\\\[artist\] - \[album\]\\
-FINALNAME = \[track\]. \[title\]
+FINALPATH = C:\Music\[artist] - [album]\
+FINALNAME = [track]. [title]
 EXTENSION = ofs
 ENCODER = ofs.exe
-PARAMETERS = -correction "\[source\]"
+PARAMETERS = -correction "[source]"
 RENAME = TRUE
 
 ; ** CORRECTION FILE (RENAME ONLY) **
 EXECUTEIF = TRUE
-FINALPATH = C:\\Music\\\[artist\] - \[album\]\\
-FINALNAME = \[track\]. \[title\]
+FINALPATH = C:\Music\[artist] - [album]\
+FINALNAME = [track]. [title]
 EXTENSION = ofc
 ENCODER = NONE
 PARAMETERS = NONE
