@@ -90,7 +90,7 @@ IMPORTANT: double quotes (") are used to enclose parameters that can have spaces
 
 (\*): If you want MAREO to rename all the files, you must cheat EAC. EAC gets confused when MAREO ends and it can’t find the encoded file to rename, as MAREO has already renamed it, so out of confusion EAC deletes the file that has matching extension with the one defined in EAC’s config! The workaround is to define EAC’s "Use file extension" to any one not being actually used, for example XXX. If you set the extension to XXX, EAC can’t find any matching file, and it goes ok. (You can also set EAC’s naming scheme to one different that the one MARE would use, like only album - track (%C - %N). Anyone would work, as MAREO would be renaming).
 
-PLEXTOOLS PROFESSIONAL XL SETUP (screen shot)
+PLEXTOOLS PROFESSIONAL XL SETUP
 =============================================
 
 Choose Disc Functions, then Disc Extraction in the Functions Window.
@@ -108,7 +108,7 @@ IMPORTANT: In the trackfield under Disc Extraction, one needs to right click on 
 
 IMPORTANT: Double quotes (") are used to enclose parameters that can have spaces inside. EAC automatically encloses source (%s) and destination (%d) file names with double quotes (") if required so it is not needed in either case.
 
-AUDIOGRABBER SETUP (screen shot)
+AUDIOGRABBER SETUP
 ================================
 
 Click on Settings menu, then MP3 settings.
@@ -121,7 +121,7 @@ Click on Settings menu, then MP3 settings.
 
 IMPORTANT: Double quotes (") are used to enclose parameters that can have spaces inside. Audiograbber uses the short path/name for source (%s) and destination (%d) so it is not needed to enclose in either case.
 
-DBPOWERAMP SETUP (screen shot)
+DBPOWERAMP SETUP
 ==============================
 
 IMPORTANT: There seems to be an error on the latest CLI of dBpowerAMP that prevents it from working. Next version of dBpowerAMP should work again.
@@ -140,7 +140,7 @@ Check and confirm mareo.exe location, and press OK.
 
 In Command Line, complete with: mareo.ini \[InFile\] \[OutFile\] \[IDArtist\] \[IDAlbum\] \[IDTrack\] \[IDTrackNumber\] \[IDYear\] \[IDGenre\] and press OK.
 
-CDEX SETUP (screen shot)
+CDEX SETUP
 ========================
 
 Press F4 or use the menus: Set CDex Options =\] Settings. Once on the CDex configuration dialog box, under the Encoder tab, set the fields as follows:
@@ -153,7 +153,7 @@ Press F4 or use the menus: Set CDex Options =\] Settings. Once on the CDex confi
 
 IMPORTANT: Double quotes (") are used to enclose parameters that can have spaces inside. CDex uses the short path/name for source (%1) and destination (%2) so it is not needed in either case.
 
-FOOBAR2000′S DISKWRITER SETUP (screen shot)
+FOOBAR2000′S DISKWRITER SETUP
 ===========================================
 
 1. Control-P. Tools, Converter, Add New.
