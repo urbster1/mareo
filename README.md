@@ -1,3 +1,2 @@
 # mareo
-Automatically exported from code.google.com/p/mareo
-sorry I don't think this worked
+Here's the latest download in case someone needed it
