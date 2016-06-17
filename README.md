@@ -204,13 +204,13 @@ MAREO would take each parameter, and load it on the corresponding \[PLACEHOLDER\
 Latter, when processing the configuration INI, each time MAREO encounters a \[PLACEHOLDER\], it would replace it with the correct value.
 
 For example, if we are telling MAREO that the command line parameters for the oggenc.exe encoder are:
-
+```
 -q 4.25 "\[source\]" -o "\[desttmp\]" -a "\[artist\]" -l "\[album\]" -t "\[title\]" -N \[track\] -d \[year\] -G "\[genre\]"
-
+```
 MAREO would read it to:
-
+```
 -q 4.25 "c:\\temp\\track.wav" -o " c:\\temp\\track.ogg" -a "Queen" -l "A Night At The Opera" -t "Bohemian Rhapsody" -N 11 -d 1975 -G "Rock"
-
+```
 The list of \[PLACEHOLDERS\] that MAREO recognizes is:
 
 |                 |                                                                                              |
@@ -279,7 +279,7 @@ MAREO.INI GENERAL SETTINGS.
 ===========================
 
 There are four, at the moment, general options that affect how MAREO works, on the mareo.ini file. They should be at the top of the file, before any "encoder order":
-
+```
 ; ————————————————————————————————————————————————————
 ; NUMBER OF ZEROS TO PAD THE TRACK NUMBER (0 to disable)
 ; ————————————————————————————————————————————————————
@@ -299,7 +299,7 @@ LogToFile = TRUE
 ; IS MAREO REQUIRED TO DELETE THE WAV FILE AFTER ENCODING (TRUE) OR THE CD RIPPER DOES (FALSE)?
 ; ————————————————————————————————————————————————————
 DeleteWavFile = FALSE
-
+```
 MAREO.INI ENCODER ORDERS
 ========================
 
