@@ -335,12 +335,12 @@ MAREO.EXE IN ACTION
 ===================
 
 Lets go back to our example where we where ripping Queen’s "Bohemian Rhapsody", and at the moment where the ripper just finished ripping the eleventh track, it calls MAREO to encode, by executing:
-
-mareo.exe mareo.ini "c:\\temp\\track.wav" "c:\\temp\\track.flac" "Queen" "A Night At The Opera" "Bohemian Rhapsody" "11" 1975 "Rock"
-
+```
+mareo.exe mareo.ini "c:\temp\track.wav" "c:\temp\track.flac" "Queen" "A Night At The Opera" "Bohemian Rhapsody" "11" 1975 "Rock"
+```
 MAREO starts, it loads each parameter into the specific \[PLACEHOLDER\], and then it opens mareo.ini. It skips the all the comments, till it gets to the first general option line:
 
-* PaddingZeros = 2
+`PaddingZeros = 2`
 MAREO immediately creates a \[PLACEHOLDER\] called \[trackpadded\] by adding two zeros at the left of the track number, and then cuting the rightmost two characters. In this case, 11 becomes 11, as it is already a 2 chars string, but if \[track\] had been 4, \[trackpadded\] would have been 04.
 
 It then reads general option line:
@@ -386,9 +386,9 @@ MAREO also creates the \[DESTTMPFULLNAME\] placeholder, which consists of \[DEST
 * Last action line, RENAME = FALSE, tells MAREO not to rename the resulting file, as it would be done by someone else, probably the ripper itself.
 
 MAREO is now ready to execute the encoder order. It calls the encoder as:
-
-c:\\encoders\\flac.exe -5 "c:\\temp\\track.wav" -o "c:\\temp\\track.flac" -T artist="Queen" -T album="A Night At The Opera" -T title="Bohemian Rhapsody" -T tracknumber="11" -T date="1975" -T genre="Rock"
-
+```
+c:\encoders\flac.exe -5 "c:\temp\track.wav" -o "c:\temp\track.flac" -T artist="Queen" -T album="A Night At The Opera" -T title="Bohemian Rhapsody" -T tracknumber="11" -T date="1975" -T genre="Rock"
+```
 Flac.exe runs, and it generates c:\\temp\\track.flac.
 
 MAREO knows it must not rename the file, so it leaves it there, so the ripper can take care of it.
@@ -407,9 +407,9 @@ PARAMETERS = -q 4.25 "[source]" -o "[DESTTMP]" -a "[artist]" -l "[album]" -t "[t
 RENAME = TRUE
 ```
 EXECUTEIF is TRUE, so MAREO executes oggenc.exe, as:
-
-c:\\encoders\\oggenc.exe -q 4.25 "c:\\temp\\track.wav" -o " c:\\temp\\track.ogg" -a "Queen" -l "A Night At The Opera" -t "Bohemian Rhapsody" -N 11 -d 1975 -G "Rock"
-
+```
+c:\encoders\oggenc.exe -q 4.25 "c:\temp\track.wav" -o " c:\temp\track.ogg" -a "Queen" -l "A Night At The Opera" -t "Bohemian Rhapsody" -N 11 -d 1975 -G "Rock"
+```
 Oggenc.exe runs and generates c:\\temp\\track.ogg
 
 MAREO know it must rename the file, to \[FINALFULLNAME\], and so it does.
@@ -504,7 +504,7 @@ We would normally setup the ripper as: INIFILE SOURCE DESTTMP ARTIST ALBUM TITLE
 
 But we would be adding the last track as the 10th parameter: INIFILE SOURCE DESTTMP ARTIST ALBUM TITLE TRACK YEAR GENRE TOTALTRACKS
 
-For EAC, that would be: mareo.ini %s %d "%a" "%g" "%t" "%n" %y "%m" %x
+For EAC, that would be: `mareo.ini %s %d "%a" "%g" "%t" "%n" %y "%m" %x`
 
 %x in EAC means "TOTAL NUMBER OF TRACKS", so we are telling EAC to pass that number to MAREO, as the 10th parameter.
 
