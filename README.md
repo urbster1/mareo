@@ -182,9 +182,9 @@ But first, some introduction to \[PLACEHOLDERS\].
 \[PLACEHOLDERS\] are memory cells that hold a text value.
 
 For example, when ripping the eleventh track of Queen’s "Bohemian Rhapsody", MAREO could receive:
-
+```
 mareo.ini "c:\\temp\\track.wav" "c:\\temp\\track.ogg" "Queen" "A Night At The Opera" "Bohemian Rhapsody" "11" 1975 "Rock"
-
+```
 MAREO would take each parameter, and load it on the corresponding \[PLACEHOLDER\]:
 
 |                     |                                                                                            |
