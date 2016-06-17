@@ -271,10 +271,10 @@ I have included a fully configured, example INI file with MAREO’s package, cal
 The INI file consists of comments, "general options", and "encoders orders".
 
 Any line that starts with a ";" is considered a comment, and is ignored by MAREO. For example:
-
+```
 ; MAREO - Multiple Applications Runner for EAC and Others - by Kwanbis - Releasen under the GPL
 ; this is a comment
-
+```
 MAREO.INI GENERAL SETTINGS.
 ===========================
 
