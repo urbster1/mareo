@@ -50,7 +50,7 @@ MAREO is very easy to set up. It consist of only 2 steps:
 1. Configuring the CD Ripper to call MAREO (as if it where a command line encoder (CLI)),
 2. and telling MAREO how do we want it to encode.
 
-But before you start, [download MAREO](http://webearce.com.ar/mareo.rar) **4.0** and [uncompress](http://www.7-zip.org) it to your ripper’s folder.
+But before you start, [download MAREO](https://hydrogenaud.io/index.php?PHPSESSID=v40obis8lgupf2oi1i2vn6ee13&action=dlattach;topic=59569.0;attach=7064) **4.0** and [uncompress](http://www.7-zip.org) it to your ripper’s folder.
 
 CONFIGURING THE CD RIPPER
 =========================
@@ -547,7 +547,7 @@ This is it. Happy ripping!
 FREQUENTLY ASKED QUESTIONS (FAQ)
 ================================
 
-Q: What an INI file is?
+Q: What is an INI file?
 
 A: An ini file is basically a TXT file that includes information on how a program should behave. Inside the mareo.zip you would see a file called mareo.INI. You can edit it with notepad, is the configuration file for MAREO.
 
@@ -562,18 +562,4 @@ A: Change the Rename to TRUE (Rename = TRUE) in the INI file.
 Q: When i tell EAC to not open external compressor, MAREO crashes.
 
 A: Change LogToFile to FALSE (LogToFile = FALSE) in the INI file.
-
-Q: Can I ask you some question by email?
-
-A: No, ask here.
-
-Q: That’s it?
-
-A: Yes.
-
-<span class="date">12 / May / 2006</span>  <span class="categories">[Uncategorized](http://webearce.com.ar/?cat=1 "View all posts in Uncategorized")</span>  <span class="comments"> [Comentarios (0)](http://webearce.com.ar/?p=2#respond "Comment on MAREO: Multiple Applications Runner for EAC and Others") </span>
-
-[WordPress](http://wordpress.org/) + [RSS](feed:http://webearce.com.ar/?feed=rss2) + [XHTML](http://validator.w3.org/check/referer "This page validates as XHTML 1.0 Transitional") + [CSS](http://jigsaw.w3.org/css-validator/check/referer "This page validates as CSS")
-Design made by [Kino](http://kino.pandela.net "Kino")
-
 
