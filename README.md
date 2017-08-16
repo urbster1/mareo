@@ -80,15 +80,17 @@ EXACT AUDIO COPY (EAC) SETUP
 Press F11 or use the menus: EAC =\] Compression Options. Once on the Compression options dialog box, under the External Compression tab, set the fields as follows:
 
 1. Parameter passing scheme: User Defined Encoder
-2. Use file extension: the file extension of the first encoder you are going to use(*)
+2. Use file extension: the file extension of the first encoder you are going to use(\*)
 3. Program, including path, used for compression: MAREO’s full path
-4. Additional command line options: mareo.ini %s %d "%a" "%g" "%t" "%n" %y "%m"
+4. Additional command line options: `mareo.ini %source% %dest% "%artist%" "%albumtitle%" "%title%" "%tracknr1%" %year% "%genre%"` (\*\*)
 5. Add ID3 tag: unchecked
 6. Delete WAV after compression: unchecked
 
 IMPORTANT: double quotes (") are used to enclose parameters that can have spaces inside. EAC automatically encloses source (%s) and destination (%d) file names with double quotes (") if required so it is not needed in either case.
 
-(*): If you want MAREO to rename all the files, you must cheat EAC. EAC gets confused when MAREO ends and it can’t find the encoded file to rename, as MAREO has already renamed it, so out of confusion EAC deletes the file that has matching extension with the one defined in EAC’s config! The workaround is to define EAC’s "Use file extension" to any one not being actually used, for example XXX. If you set the extension to XXX, EAC can’t find any matching file, and it goes ok. (You can also set EAC’s naming scheme to one different that the one MARE would use, like only album - track (%C - %N). Anyone would work, as MAREO would be renaming).
+(\*): If you want MAREO to rename all the files, you must cheat EAC. EAC gets confused when MAREO ends and it can’t find the encoded file to rename, as MAREO has already renamed it, so out of confusion EAC deletes the file that has matching extension with the one defined in EAC’s config! The workaround is to define EAC’s "Use file extension" to any one not being actually used, for example XXX. If you set the extension to XXX, EAC can’t find any matching file, and it goes ok. (You can also set EAC’s naming scheme to one different that the one MARE would use, like only album - track (%C - %N). Anyone would work, as MAREO would be renaming).
+
+(\*\*): For versions of Exact Audio Copy pre-v1.0b2, the parameters for "Additional command-line options" should be: `mareo.ini %s %d "%a" "%g" "%t" "%n" %y "%m"`
 
 PLEXTOOLS PROFESSIONAL XL SETUP
 =============================================
@@ -98,7 +100,7 @@ Choose Disc Functions, then Disc Extraction in the Functions Window.
 1. Output Path: The folder where you want to store the temporary Wave files. Press the Preferences Button -\] Disc Extraction
 2. Audio Format: Choose External Encoder. Press the Extra Options button
 3. Select the program: MAREO’s full path
-4. Command Line Arguments: mareo.ini %S %O "%A" "%C" "%T" "%N" %Y "%G"
+4. Command Line Arguments: `mareo.ini %S %O "%A" "%C" "%T" "%N" %Y "%G"`
 5. File Extension: Choose one of the following extensions: .flac / .ogg / .ape
 6. Tag info is included in the command line arguments: checked
 
@@ -116,7 +118,7 @@ Click on Settings menu, then MP3 settings.
 1. Check "External Encoder"
 2. Browse for mareo.exe
 3. Predefined Arguments: User Defined
-4. Arguments: mareo.ini %s %d "%1" "%2" "%4" "%3" "%6" "%7"
+4. Arguments: `mareo.ini %s %d "%1" "%2" "%4" "%3" "%6" "%7"`
 5. File Extension: the file extension of the 1st format you are going to encode into
 
 IMPORTANT: Double quotes (") are used to enclose parameters that can have spaces inside. Audiograbber uses the short path/name for source (%s) and destination (%d) so it is not needed to enclose in either case.
@@ -148,7 +150,7 @@ Press F4 or use the menus: Set CDex Options =\] Settings. Once on the CDex confi
 1. Encoder: External Encoder
 2. Encoder path: (browse for) mareo.exe
 3. File Extension: the file extension of the 1st format you are going to encode into
-4. Parameter string: mareo.ini %1 %2 "%a" "%b" "%t" "%tn" "%y" "%g"
+4. Parameter string: `mareo.ini %1 %2 "%a" "%b" "%t" "%tn" "%y" "%g"`
 5. Don’t delete ripped WAV file after conversion: checked
 
 IMPORTANT: Double quotes (") are used to enclose parameters that can have spaces inside. CDex uses the short path/name for source (%1) and destination (%2) so it is not needed in either case.
@@ -160,7 +162,7 @@ FOOBAR2000′S DISKWRITER SETUP
 2. Encoder: Custom
 3. Encoder: (browse for) mareo.exe
 4. Extension: extension of the 1st encoded file (or the file that fb2k would rename).
-5. Parameters: mareo.ini %s %d "%artist%" "%album%" "%title%" %tracknumber%" "%date%" "%genre%"
+5. Parameters: `mareo.ini %s %d "%artist%" "%album%" "%title%" %tracknumber%" "%date%" "%genre%"`
 6. Display Name: MAREO
 
 foobar2000 likes to rename its converted files, so, when you define the INI, the encoder order with the same extension that was defined on the previous steps, must be set to RENAME = FALSE. More on it latter.
