@@ -1,0 +1,503 @@
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Webearce</title>
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Content-Type" content="UTF-8" />
+<meta name="generator" content="WordPress 2.0.2" />
+<link rel="stylesheet" href="http://webearce.com.ar/wp-content/themes/blue%20kino/style.css" type="text/css" media="screen, projection" />
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://webearce.com.ar/?feed=rss2" />
+<link rel="alternate" type="text/xml" title="RSS .92" href="http://webearce.com.ar/?feed=rss" />
+<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://webearce.com.ar/?feed=atom" />
+<link rel="pingback" href="http://webearce.com.ar/xmlrpc.php" />
+</head>
+
+<body>
+<div id="header"></div>
+<div id="container">
+		<ul id="nav">
+   	   <li id="current"><a href="http://webearce.com.ar/" title="home"><span>home</span></a></li>
+	   <li><a href="http://webearce.com.ar/mareo.rar" title="downlaod"><span>download</span></a></li>
+	   <li><a href="http://www.hydrogenaudio.org/forums/index.php?s=&showtopic=44559&view=findpost&p=391888" title="support"><span>support</span></a></li>
+   	   <li><a href="http://mail.google.com/hosted/webearce.com.ar" title="mail"><span>mail</span></a></li>
+	   </ul><br/>	<div id="content">
+				<div class="entry">
+			<div class="rounded-box">
+				<div class="top-left-corner"><div class="top-left-inside">&bull;</div></div>
+			   <div class="top-right-corner"><div class="top-right-inside">&bull;</div></div>
+			   <div class="bottom-left-corner"><div class="bottom-left-inside">&bull;</div></div>
+			   <div class="bottom-right-corner"><div class="bottom-right-inside">&bull;</div></div>
+				<div class="box-contents">
+				  	<h2><a href="http://webearce.com.ar/?p=2" title="Permalink">MAREO: Multiple Applications Runner for EAC and Others</a></h2>
+					<h1>INTRODUCTION</h1>
+<p>MAREO, spanish for &#8216;dizziness&#8217;, is a special program for CD rippers and other audio compression frontends that has the ability to execute multiple encoders for each track ripped, allowing to encode to multiple audio formats at the same time.</p>
+<p>It can be used to rip to FLAC (for archival) and MP3 (for MP3 Player use) at once, or to WavPack and Ogg Vorbis, or to Monkey&#8217;s Audio and AAC, etc.</p>
+<p>Once properly configured, MAREO is called from the frontend software (be it EAC or Others), as if it where an encoder, which in turn would execute all the encoders it has been instructed to, passing them the required parameters such as source and destination file, album artist, album name, track number, track name, album date, genre, etc.</p>
+<p>It can also be used to execute pre-processor and post-processor programs, like WaveGain and MP3Gain respectively.</p>
+<p>MAREO is also capable of handling &quot;multi-file-generator&quot; encoders, like OptimFROG and WavPack.</p>
+<p>MAREO comes pre-configured, and has been tested to work with the following encoders and/or processors:</p>
+<p>1. LAME MP3<br />2. Ogg Vorbis<br />3. iTunes MP4/AAC (w/iTunesEncode)<br />4. QuickTime Pro MP4/AAC (w/Qutibacoas)<br />5. Nero Digital Quality MP4 &amp; 3GPP Audio Codec<br />6. Nero AAC (w/NAACenc)<br />7. MusePack<br />8. FLAC<br />9. WavPack (including hybrid with correction file)<br />10. OptimFROG (including correction file)<br />11. WaveGain<br />12. MP3Gain<br />13. WAPET<br />14. AtomicParsley</p>
+<p>MAREO has also been tested to work with the following rippers:</p>
+<p>1. Exact Audio Copy (EAC)<br />2. Plextools Professional XL<br />3. Audiograbber<br />4. dBpowerAMP<br />5. foobar2000<br />6. CDex</p>
+<p>MAREO is an open source/GPL-licensed application developed using Borland&#8217;s Delphi, and is my (very) humble contribution to the excellent <a href="http://www.hydrogenaudio.org">Hydrogenaudio</a> community.</p>
+<p>MAREO is very easy to set up. It consist of only 2 steps:</p>
+<p>1. Configuring the CD Ripper to call MAREO (as if it where a command line encoder (CLI)),<br />2. and telling MAREO how do we want it to encode.</p>
+<p>But before you start, <a href="http://webearce.com.ar/mareo.rar">download MAREO</a> <strong>4.0</strong> and <a href="http://www.7-zip.org">uncompress</a> it to your ripper&#8217;s folder.</p>
+<h1>CONFIGURING THE CD RIPPER</h1>
+<p>MAREO, when called from the CD ripper, expects to receive on the command line, and in this order, the following parameters:</p>
+<p>INIFILE SOURCE DESTTMP ARTIST ALBUM TITLE TRACK YEAR GENRE 1 .. N</p>
+<table width="100%" cellspacing="1" cellpadding="1" border="0" align="" summary="">
+<tbody>
+<tr>
+<td>INIFILE</td>
+<td>name of the plain text (ASCII) file that holds MAREO&#8217;s configuration (usually mareo.ini).</td>
+</tr>
+<tr>
+<td>SOURCE</td>
+<td>name of the temporal WAV file produced by the CD ripper (example: c:\ripper\mtmp(207!.wav).</td>
+</tr>
+<tr>
+<td>DESTTMP</td>
+<td>name of the temporal encoded file produced by the encoders (example: c:\ripper\mtmp(207!.mp3).</td>
+</tr>
+<tr>
+<td>ARTIST</td>
+<td>album/cd artist name (example: Marc Antony).</td>
+</tr>
+<tr>
+<td>ALBUM </td>
+<td>album/cd name (example: Mended).</td>
+</tr>
+<tr>
+<td>TITLE</td>
+<td>song/track name (example: I Swear).</td>
+</tr>
+<tr>
+<td>TRACK</td>
+<td>song/track number (example: 7).</td>
+</tr>
+<tr>
+<td>YEAR</td>
+<td>year the album/cd was produced.</td>
+</tr>
+<tr>
+<td>GENRE</td>
+<td>genre the album/cd belongs to.</td>
+</tr>
+<tr>
+<td>1 &#8230; n</td>
+<td>Any parameter passed by the ripper to MAREO, after the genre.</td>
+</tr>
+</tbody>
+</table>
+<p>Lets see some ripper setup examples.</p>
+<h1>EXACT AUDIO COPY (EAC) SETUP (screen shot)</h1>
+<p>Press F11 or use the menus: EAC =] Compression Options. Once on the Compression options dialog box, under the External Compression tab, set the fields as follows:</p>
+<p>1. Parameter passing scheme: User Defined Encoder<br />2. Use file extension: the file extension of the first encoder you are going to use(*)<br />3. Program, including path, used for compression: MAREO&#8217;s full path<br />4. Additional command line options: mareo.ini %s %d &quot;%a&quot; &quot;%g&quot; &quot;%t&quot; &quot;%n&quot; %y &quot;%m&quot;<br />5. Add ID3 tag: unchecked<br />6. Delete WAV after compression: unchecked</p>
+<p>IMPORTANT: double quotes (&quot;) are used to enclose parameters that can have spaces inside. EAC automatically encloses source (%s) and destination (%d) file names with double quotes (&quot;) if required so it is not needed in either case.</p>
+<p>(*): If you want MAREO to rename all the files, you must cheat EAC. EAC gets confused when MAREO ends and it can&#8217;t find the encoded file to rename, as MAREO has already renamed it, so out of confusion EAC deletes the file that has matching extension with the one defined in EAC&#8217;s config! The workaround is to define EAC&#8217;s &quot;Use file extension&quot; to any one not being actually used, for example XXX. If you set the extension to XXX, EAC can&#8217;t find any matching file, and it goes ok. (You can also set EAC&#8217;s naming scheme to one different that the one MARE would use, like only album - track (%C - %N). Anyone would work, as MAREO would be renaming).</p>
+<h1>PLEXTOOLS PROFESSIONAL XL SETUP (screen shot)</h1>
+<p>Choose Disc Functions, then Disc Extraction in the Functions Window.</p>
+<p>1. Output Path: The folder where you want to store the temporary Wave files. Press the Preferences Button -] Disc Extraction<br />2. Audio Format: Choose External Encoder. Press the Extra Options button<br />3. Select the program: MAREO&#8217;s full path<br />4. Command Line Arguments: mareo.ini %S %O &quot;%A&quot; &quot;%C&quot; &quot;%T&quot; &quot;%N&quot; %Y &quot;%G&quot;<br />5. File Extension: Choose one of the following extensions: .flac / .ogg / .ape<br />6. Tag info is included in the command line arguments: checked</p>
+<p>The Filename Options under Disc Extraction just name the temporary wave files after the user defined naming scheme, not the files encoded with MAREO. PlexTools Professional XL deletes the Wave files automatically, so the DeleteWavFile option in mareo.ini is always FALSE.</p>
+<p>IMPORTANT: In the trackfield under Disc Extraction, one needs to right click on a track and choose MP3 ID3 Tag. Make sure, that you choose freedb in the &#8216;Get CD TEXT from&#8217; field at the bottom! (I think this tweak only has to be applied once. PTPXL will save the configuration)</p>
+<p>IMPORTANT: Double quotes (&quot;) are used to enclose parameters that can have spaces inside. EAC automatically encloses source (%s) and destination (%d) file names with double quotes (&quot;) if required so it is not needed in either case.</p>
+<h1>AUDIOGRABBER SETUP (screen shot)</h1>
+<p>Click on Settings menu, then MP3 settings.</p>
+<p>1. Check &quot;External Encoder&quot;<br />2. Browse for mareo.exe<br />3. Predefined Arguments: User Defined<br />4. Arguments: mareo.ini %s %d &quot;%1&quot; &quot;%2&quot; &quot;%4&quot; &quot;%3&quot; &quot;%6&quot; &quot;%7&quot;<br />5. File Extension: the file extension of the 1st format you are going to encode into</p>
+<p>IMPORTANT: Double quotes (&quot;) are used to enclose parameters that can have spaces inside. Audiograbber uses the short path/name for source (%s) and destination (%d) so it is not needed to enclose in either case.</p>
+<h1>DBPOWERAMP SETUP (screen shot)</h1>
+<p>IMPORTANT: There seems to be an error on the latest CLI of dBpowerAMP that prevents it from working. Next version of dBpowerAMP should work again.</p>
+<p>You need to download and install the Generic CLI. Define MAREO command line by running Start ]] Programs ]] dBpowerAMP Music Converter ]] Create Generic CLI.</p>
+<p>1. Shown Name: MAREO<br />2. Use Cli Encoder: (browse for) mareo.exe<br />3. File Extension: the file extension of the 1st format you are going to encode into</p>
+<p>Press Create, and then close this dialog box. Start dBpowerAMP and press the Options button.</p>
+<p>Under the Audio CD Input Options, in Rip to, select MAREO, uncheck Write ID tags, and press Settings button.</p>
+<p>Check and confirm mareo.exe location, and press OK.</p>
+<p>In Command Line, complete with: mareo.ini [InFile] [OutFile] [IDArtist] [IDAlbum] [IDTrack] [IDTrackNumber] [IDYear] [IDGenre] and press OK.</p>
+<h1>CDEX SETUP (screen shot)</h1>
+<p>Press F4 or use the menus: Set CDex Options =] Settings. Once on the CDex configuration dialog box, under the Encoder tab, set the fields as follows:</p>
+<p>1. Encoder: External Encoder<br />2. Encoder path: (browse for) mareo.exe<br />3. File Extension: the file extension of the 1st format you are going to encode into<br />4. Parameter string: mareo.ini %1 %2 &quot;%a&quot; &quot;%b&quot; &quot;%t&quot; &quot;%tn&quot; &quot;%y&quot; &quot;%g&quot;<br />5. Don&#8217;t delete ripped WAV file after conversion: checked</p>
+<p>IMPORTANT: Double quotes (&quot;) are used to enclose parameters that can have spaces inside. CDex uses the short path/name for source (%1) and destination (%2) so it is not needed in either case.</p>
+<h1>FOOBAR2000&#8242;S DISKWRITER SETUP (screen shot)</h1>
+<p>1. Control-P. Tools, Converter, Add New.<br />2. Encoder: Custom<br />3. Encoder: (browse for) mareo.exe<br />4. Extension: extension of the 1st encoded file (or the file that fb2k would rename).<br />5. Parameters: mareo.ini %s %d &quot;%artist%&quot; &quot;%album%&quot; &quot;%title%&quot; %tracknumber%&quot; &quot;%date%&quot; &quot;%genre%&quot;<br />6. Display Name: MAREO</p>
+<p>foobar2000 likes to rename its converted files, so, when you define the INI, the encoder order with the same extension that was defined on the previous steps, must be set to RENAME = FALSE. More on it latter.</p>
+<p>For example, if in (4.) Extension: mp3, the MP3 encoder order must be set to RENAME = FALSE.</p>
+<p>IMPORTANT: Double quotes (&quot;) are used to enclose parameters that can have spaces inside.</p>
+<h1>CONFIGURING MAREO</h1>
+<p>Now that the CD ripper is ready, we must tell MAREO how we want to encode.</p>
+<p>But first, some introduction to [PLACEHOLDERS].</p>
+<h1>[PLACEHOLDERS]</h1>
+<p>[PLACEHOLDERS] are memory cells that hold a text value.</p>
+<p>For example, when ripping the eleventh track of Queen&#8217;s &quot;Bohemian Rhapsody&quot;, MAREO could receive:</p>
+<p>mareo.ini &quot;c:\temp\track.wav&quot; &quot;c:\temp\track.ogg&quot; &quot;Queen&quot; &quot;A Night At The Opera&quot; &quot;Bohemian Rhapsody&quot; &quot;11&quot; 1975 &quot;Rock&quot;</p>
+<p>MAREO would take each parameter, and load it on the corresponding [PLACEHOLDER]:</p>
+<table width="100%" cellspacing="1" cellpadding="1" border="0" align="" summary="">
+<tbody>
+<tr>
+<td>[SOURCE]</td>
+<td>c:\temp\track.wav</td>
+</tr>
+<tr>
+<td>[DESTTMP]</td>
+<td>c:\temp\track.ogg</td>
+</tr>
+<tr>
+<td>[ARTIST]</td>
+<td>Queen</td>
+</tr>
+<tr>
+<td>[ALBUM]</td>
+<td>A Night At The Opera</td>
+</tr>
+<tr>
+<td>[TITLE]</td>
+<td>Bohemian Rhapsody</td>
+</tr>
+<tr>
+<td>[TRACK]</td>
+<td>11</td>
+</tr>
+<tr>
+<td>[YEAR]</td>
+<td>1975</td>
+</tr>
+<tr>
+<td>[GENRE]</td>
+<td>Rock</td>
+</tr>
+<tr>
+<td>[DESTTMPPATH]</td>
+<td>MAREO would extract from [DESTTMP] the destination temporal PATH.</td>
+</tr>
+<tr>
+<td>[DESTTMPNAME]</td>
+<td>MAREO would extract from [DESTTMP] the destination temporal NAME, with no extension.</td>
+</tr>
+<tr>
+<td>[DESTTMPFULLNAME]</td>
+<td>destination temporal full name: [DESTTMPPATH] + \ + [DESTTMPNAME] + . + [EXTENSION]</td>
+</tr>
+</tbody>
+</table>
+<p>Latter, when processing the configuration INI, each time MAREO encounters a [PLACEHOLDER], it would replace it with the correct value.</p>
+<p>For example, if we are telling MAREO that the command line parameters for the oggenc.exe encoder are:</p>
+<p>-q 4.25 &quot;[source]&quot; -o &quot;[desttmp]&quot; -a &quot;[artist]&quot; -l &quot;[album]&quot; -t &quot;[title]&quot; -N [track] -d [year] -G &quot;[genre]&quot;</p>
+<p>MAREO would read it to:</p>
+<p>-q 4.25 &quot;c:\temp\track.wav&quot; -o &quot; c:\temp\track.ogg&quot; -a &quot;Queen&quot; -l &quot;A Night At The Opera&quot; -t &quot;Bohemian Rhapsody&quot; -N 11 -d 1975 -G &quot;Rock&quot;</p>
+<p>The list of [PLACEHOLDERS] that MAREO recognizes is:</p>
+<table width="100%" cellspacing="1" cellpadding="1" border="0" align="" summary="">
+<tbody>
+<tr>
+<td>[PLACEHOLDER]</td>
+<td>VALUE</td>
+</tr>
+<tr>
+<td>[SOURCE]</td>
+<td>temporal source FULL file name, command line arameter #2 passed by the ripper to MAREO</td>
+</tr>
+<tr>
+<td>[DESTTMP]</td>
+<td>temporal destination FULL file name, command line arameter #3 passed by the ripper to MAREO</td>
+</tr>
+<tr>
+<td>[ARTIST]</td>
+<td>CD Artist Name, command line arameter #4 passed by the ripper to MAREO</td>
+</tr>
+<tr>
+<td>[ALBUM]</td>
+<td>CD Name, command line arameter #5 passed by the ripper to MAREO</td>
+</tr>
+<tr>
+<td>[TITLE]</td>
+<td>Track (song) Name, command line arameter #6 passed by the ripper to MAREO</td>
+</tr>
+<tr>
+<td>[TRACK]</td>
+<td>Track (song) Number, command line arameter #7 passed by the ripper to MAREO</td>
+</tr>
+<tr>
+<td>[TRACKPADDED]</td>
+<td>[TRACK] padded with PaddingZeros</td>
+</tr>
+<tr>
+<td>[YEAR]</td>
+<td>Year of the CD release, command line arameter #8 passed by the ripper to MAREO</td>
+</tr>
+<tr>
+<td>[GENRE]</td>
+<td>CD&#8217;s Music Genre, command line arameter #9 passed by the ripper to MAREO</td>
+</tr>
+<tr>
+<td>[1] .. [N]</td>
+<td>Any parameter passed by the ripper to MAREO, after the genre.</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<h1>FOLDER [PLACEHOLDERS]</h1>
+<p>MAREO also recognizes some virtual folders, like &quot;My Documents&quot;, so if your &quot;My Documents&quot; folders is actually at &quot;c:\document and settings\username\documents\&quot;, you can reference it by using the [MYDOCUMENTS] [PLACEHOLDER]. </p>
+<p>You can use mareoSpecialFolders.exe, to test what MAREO detects.</p>
+<p>The full list of virtual folders&#8217; [PLACEHOLDERS] is:</p>
+<table width="100%" cellspacing="1" cellpadding="1" border="0" align="" summary="">
+<tbody>
+<tr>
+<td>[PLACEHOLDER] </td>
+<td>VALUE</td>
+</tr>
+<tr>
+<td>[APPDATA]</td>
+<td>file system directory that serves as a common repository for application-specific data. A typical path is C:\Documents and Settings\username\Application Data.</td>
+</tr>
+<tr>
+<td>[CDBURN_AREA]</td>
+<td>file system directory acting as a staging area for files waiting to be written to CD. A typical path is C:\Documents and Settings\username\Local Settings\Application Data\Microsoft\CD Burning.</td>
+</tr>
+<tr>
+<td>[COMMON_MUSIC]</td>
+<td>file system directory that serves as a repository for music files common to all users. A typical path is C:\Documents and Settings\All Users\Documents\My Music.</td>
+</tr>
+<tr>
+<td>[DESKTOP]</td>
+<td>virtual folder representing the Windows desktop, the root of the namespace.</td>
+</tr>
+<tr>
+<td>[DESKTOPDIRECTORY]</td>
+<td>file system directory used to physically store file objects on the desktop (not to be confused with the desktop folder itself). A typical path is C:\Documents and Settings\username\Desktop.</td>
+</tr>
+<tr>
+<td>[LOCAL_APPDATA]</td>
+<td>file system directory that serves as a data repository for local (nonroaming) applications. A typical path is C:\Documents and Settings\username\Local Settings\Application Data.</td>
+</tr>
+<tr>
+<td>[MYDOCUMENTS]</td>
+<td>virtual folder representing the My Documents desktop item.</td>
+</tr>
+<tr>
+<td>[MYMUSIC]</td>
+<td>file system directory that serves as a common repository for music files. A typical path is C:\Documents and Settings\User\My Documents\My Music.</td>
+</tr>
+<tr>
+<td>[MYPICTURES]</td>
+<td>file system directory that serves as a common repository for image files. A typical path is C:\Documents and Settings\username\My Documents\My Pictures.</td>
+</tr>
+<tr>
+<td>[MYVIDEO]</td>
+<td>file system directory that serves as a common repository for video files. A typical path is C:\Documents and Settings\username\My Documents\My Videos.</td>
+</tr>
+<tr>
+<td>[PERSONAL]</td>
+<td>virtual folder representing the My Documents desktop item. This is equivalent to CSIDL_MYDOCUMENTS.</td>
+</tr>
+<tr>
+<td>[PHOTOALBUMS]</td>
+<td>virtual folder used to store photo albums, typically username\My Pictures\Photo Albums. Windows Vista and later.</td>
+</tr>
+<tr>
+<td>[PLAYLISTS]</td>
+<td>virtual folder used to store play albums, typically username\My Music\Playlists. Windows Vista and later.</td>
+</tr>
+<tr>
+<td>[PROFILE]</td>
+<td>user&#8217;s profile folder. A typical path is C:\Documents and Settings\username.</td>
+</tr>
+<tr>
+<td>[PROGRAM_FILES]</td>
+<td>Program Files folder. A typical path is C:\Program Files.</td>
+</tr>
+<tr>
+<td>[PROGRAM_COMMON]</td>
+<td>A folder for components that are shared across applications. A typical path is C:\Program Files\Common.</td>
+</tr>
+<tr>
+<td>[PROGRAMS]</td>
+<td>file system directory that contains the user&#8217;s program groups (which are themselves file system directories). A typical path is C:\Documents and Settings\username\Start Menu\Programs.</td>
+</tr>
+<tr>
+<td>[SYSTEM]</td>
+<td>Windows System folder. A typical path is C:\Windows\System32.</td>
+</tr>
+<tr>
+<td>[WINDOWS]</td>
+<td>Windows directory or SYSROOT. This corresponds to the %windir% or %SYSTEMROOT% environment variables. A typical path is C:\Windows.</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<h1>MAREO.INI</h1>
+<p>MAREO&#8217;s configuration is defined on an INI file. An INI file, is like any TXT file created by notepad, but with .INI extension, instead than .TXT. Its basically a clean ASCII file.</p>
+<p>MAREO reads the specified INI file (as the first command line parameter it receives, INIFILE), searching for instructions on what an how to do it.</p>
+<p>I have included a fully configured, example INI file with MAREO&#8217;s package, called, you guessed it mareo.ini. I fully recommend that you now open that file with notepad, so you can better understand what I mean.</p>
+<p>The INI file consists of comments, &quot;general options&quot;, and &quot;encoders orders&quot;.</p>
+<p>Any line that starts with a &quot;;&quot; is considered a comment, and is ignored by MAREO. For example:</p>
+<p>; MAREO - Multiple Applications Runner for EAC and Others - by Kwanbis - Releasen under the GPL<br />; this is a comment</p>
+<h1>MAREO.INI GENERAL SETTINGS.</h1>
+<p>There are four, at the moment, general options that affect how MAREO works, on the mareo.ini file. They should be at the top of the file, before any &quot;encoder order&quot;:</p>
+<p>; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br />; NUMBER OF ZEROS TO PAD THE TRACK NUMBER (0 to disable)<br />; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br />PaddingZeros = 2</p>
+<p>; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br />; IS MAREO REQUIRED TO LOG TO THE SCREEN?<br />; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br />LogToScreen = TRUE</p>
+<p>; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br />; IS MAREO REQUIRED TO LOG TO A TXT/LOG FILE?<br />; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br />LogToFile = TRUE</p>
+<p>; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br />; IS MAREO REQUIRED TO DELETE THE WAV FILE AFTER ENCODING (TRUE) OR THE CD RIPPER DOES (FALSE)?<br />; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br />DeleteWavFile = FALSE</p>
+<h1>MAREO.INI ENCODER ORDERS</h1>
+<p>For each encoder we want MAREO to execute, an &quot;encoder order&quot; must be defined.</p>
+<p>This is done by defining 7 &quot;Action Lines&quot;: EXECUTEIF,&nbsp; FINALPATH,&nbsp; FINALNAME,&nbsp; EXTENSION,&nbsp; ENCODEREXE,&nbsp; PARAMETERS,&nbsp; RENAME.</p>
+<table width="100%" cellspacing="1" cellpadding="1" border="0" align="" summary="">
+<tbody>
+<tr>
+<td>ACTION LINE</td>
+<td>EXPLANATION</td>
+</tr>
+<tr>
+<td>EXECUTEIF</td>
+<td>Posible values are:<br />1. TRUE (always executes),<br />2. LASTTRACK it uses whats on the mareoLAST.INI and evaluates agains current track number,<br />3. XXX = YYY: in this last case MAREO evaluates the formula, and if true, it executes the encoder order.<br />For example, EXECUTEIF = [track] = [1] Assuming that in [1] MAREO is getting the last track number from the ripper, and that it is for example, 12, and that the current track number is 4, MAREO would evaluate 4 = 12, which is false, and not execute. When track number is 12, MAREO would evaluate 12 = 12, and execute.</td>
+</tr>
+<tr>
+<td>FINALPATH</td>
+<td>the path to place the encoded file, example: C:\Music\[artist] - [album]</td>
+</tr>
+<tr>
+<td>FINALNAME</td>
+<td>the name of the encoded file, example: [track]. [title]</td>
+</tr>
+<tr>
+<td>EXTENSION</td>
+<td>the extension of the encoded file, example: mp3</td>
+</tr>
+<tr>
+<td>ENCODEREXE</td>
+<td>the full file name of the encoder executable (lame.exe), including, if not in the same folder as MAREO, the full path (c:\encoders\lame.exe).</td>
+</tr>
+<tr>
+<td>PARAMETERS</td>
+<td>the command line parameters we would normally pass to the encoder, as if we where running it from a command prompt.</td>
+</tr>
+<tr>
+<td>RENAME</td>
+<td>Posible values: TRUE or FALSE. if TRUE, MAREO would rename as per the FINALPATH, FINALNAME and EXTENSION options.</td>
+</tr>
+</tbody>
+</table>
+<p>EXTENSION, FINALPATH, FINALNAME, FINALFULLNAME, are loaded into the corresponding [PLACEHOLDERS] by MAREO.</p>
+<table width="100%" cellspacing="1" cellpadding="1" border="0" align="" summary="">
+<tbody>
+<tr>
+<td>[EXTENSION]</td>
+<td>file extension of the encoder without the dot (ex: MP3), as specified to MAREO on the INI, as EXTENSION.</td>
+</tr>
+<tr>
+<td>[FINALPATH]</td>
+<td>destination final PATH as specified to MAREO on the INI, as PATH.</td>
+</tr>
+<tr>
+<td>[FINALNAME]</td>
+<td>destination final NAME as specified to MAREO on the INI, as FILENAME, with no extension.</td>
+</tr>
+<tr>
+<td>[FINALFULLNAME]</td>
+<td>destination final FINALPATH+FINALNAME+extension.</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<h1>MAREO.EXE IN ACTION</h1>
+<p>Lets go back to our example where we where ripping Queen&#8217;s &quot;Bohemian Rhapsody&quot;, and at the moment where the ripper just finished ripping the eleventh track, it calls MAREO to encode, by executing:</p>
+<p>mareo.exe mareo.ini &quot;c:\temp\track.wav&quot; &quot;c:\temp\track.flac&quot; &quot;Queen&quot; &quot;A Night At The Opera&quot; &quot;Bohemian Rhapsody&quot; &quot;11&quot; 1975 &quot;Rock&quot;</p>
+<p>MAREO starts, it loads each parameter into the specific [PLACEHOLDER], and then it opens mareo.ini. It skips the all the comments, till it gets to the first general option line:</p>
+<p>* PaddingZeros = 2<br />MAREO immediately creates a [PLACEHOLDER] called [trackpadded] by adding two zeros at the left of the track number, and then cuting the rightmost two characters. In this case, 11 becomes 11, as it is already a 2 chars string, but if [track] had been 4, [trackpadded] would have been 04.</p>
+<p>It then reads general option line:<br />* LogToScreen = TRUE<br />This line just tells MAREO that we want it to log to the screen.</p>
+<p>It then reads general option line:<br />* LogToFile = TRUE<br />This line just tells MAREO that we want it to log to a txt file, called mareo.log.</p>
+<p>It then reads general option line:<br />* DeleteWavFile = FALSE<br />This line tells MAREO when it finish with the encoder orders, we don&#8217;t want it to delete the original wav file.</p>
+<p>Now MAREO has read the general options, and it continues to read the INI file, searching for encoder orders.</p>
+<p>The first encoder order it finds, is:</p>
+<p>; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br />; FLAC ENCODER ORDER<br />; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br />EXECUTEIF = TRUE<br />FINALPATH = [PERSONAL]\Music\[artist] - [album]\<br />FINALNAME = [track]. [title]<br />EXTENSION = flac<br />ENCODEREXE = c:\encoders\flac.exe<br />PARAMETERS = -5 &quot;[source]&quot; -o &quot;[DESTTMP]&quot; -T artist=&quot;[artist]&quot; -T album=&quot;[album]&quot; -T title=&quot;[title]&quot; -T tracknumber=&quot;[track]&quot; -T date=&quot;[year]&quot; -T genre=&quot;[genre]&quot;<br />RENAME = FALSE</p>
+<p>* The first action line, EXECUTEIF = TRUE, is set to true, so it know it must execute this encoder order.<br />* The second action line, FINALPATH = [PERSONAL]\Music\[artist] - [album]\, is transformed by MAREO into &quot;C:\My Documents\Music\Queen - A Night At The Opera\&quot;, and assigned to the [FINALPATH] [PLACEHOLDER].<br />* The third action line, FINALNAME = [track]. [title], is transformed by MAREO into &quot;11. Bohemian Rhapsody&quot;, and assigned to the [FINALNAME] [PLACEHOLDER].<br />* The fourth action line, EXTENSION = flac, tells MAREO to assign &quot;flac&quot; to the [EXTENSION] [PLACEHOLDER].</p>
+<p>MAREO then creates the [FINALFULLNAME] [PLACEHOLDER], which consists of [FINALPATH] + \ + [FINALNAME] + . + [EXTENSION].<br />MAREO also creates the [DESTTMPFULLNAME] placeholder, which consists of [DESTTMPPATH] + \ + [DESTTMPNAME] + . + [EXTENSION].</p>
+<p>* The fifth action line, tells MAREO the location and name of the encoder: &quot;c:\encoders\flac.exe&quot;<br />* The sixth action line, tells MAREO the parameters we need to pass to the encoder. MAREO reads it, and replaces all the [PLACEHOLDERS], with the correct values, transforming it into:<br />-5 &quot;c:\temp\track.wav&quot; -o &quot;c:\temp\track.flac&quot; -T artist=&quot;Queen&quot; -T album=&quot;A Night At The Opera&quot; -T title=&quot;Bohemian Rhapsody&quot; -T tracknumber=&quot;11&quot; -T date=&quot;1975&quot; -T genre=&quot;Rock&quot;</p>
+<p>* Last action line, RENAME = FALSE, tells MAREO not to rename the resulting file, as it would be done by someone else, probably the ripper itself.</p>
+<p>MAREO is now ready to execute the encoder order. It calls the encoder as:</p>
+<p>c:\encoders\flac.exe -5 &quot;c:\temp\track.wav&quot; -o &quot;c:\temp\track.flac&quot; -T artist=&quot;Queen&quot; -T album=&quot;A Night At The Opera&quot; -T title=&quot;Bohemian Rhapsody&quot; -T tracknumber=&quot;11&quot; -T date=&quot;1975&quot; -T genre=&quot;Rock&quot;</p>
+<p>Flac.exe runs, and it generates c:\temp\track.flac.</p>
+<p>MAREO knows it must not rename the file, so it leaves it there, so the ripper can take care of it.</p>
+<p>MAREO then reads the next encoder order:</p>
+<p>; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br />; OGG VORBIS ENCODER ORDER<br />; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br />EXECUTEIF = TRUE<br />FINALPATH = [PERSONAL]\Music\[artist] - [album]\<br />FINALNAME = [track]. [title]<br />EXTENSION = ogg<br />ENCODEREXE = c:\encoders\oggenc.exe<br />PARAMETERS = -q 4.25 &quot;[source]&quot; -o &quot;[DESTTMP]&quot; -a &quot;[artist]&quot; -l &quot;[album]&quot; -t &quot;[title]&quot; -N &quot;[track]&quot; -d &quot;[year]&quot; -G &quot;[genre]&quot;<br />RENAME = TRUE</p>
+<p>EXECUTEIF is TRUE, so MAREO executes oggenc.exe, as:</p>
+<p>c:\encoders\oggenc.exe -q 4.25 &quot;c:\temp\track.wav&quot; -o &quot; c:\temp\track.ogg&quot; -a &quot;Queen&quot; -l &quot;A Night At The Opera&quot; -t &quot;Bohemian Rhapsody&quot; -N 11 -d 1975 -G &quot;Rock&quot;</p>
+<p>Oggenc.exe runs and generates c:\temp\track.ogg</p>
+<p>MAREO know it must rename the file, to [FINALFULLNAME], and so it does.</p>
+<h1>PRE-PROCESSORS</h1>
+<p>Pre-processors are programs that process a file, before the actual encoding occurs. The most common example being WaveGain. WaveGain is a tool that can take a wav file, and &quot;normalize&quot; the sound volume as defined by the user. This has the effect of having all the sound files at the same volume. With MAREO, we can make WaveGain normalize the wav files before doing the encodes. It is commonly set up as the first encoder order, so all the subsequent encodes start with a wav file already normalized.</p>
+<p>To use WaveGain with MAREO then set the encoder order as:</p>
+<p>; *** WAVEGAIN PRE-PROCESSING EXAMPLE ***<br />EXECUTEIF = TRUE<br />FINALPATH = NONE<br />FINALNAME = NONE<br />EXTENSION = NONE<br />ENCODEREXE = wavegain.exe<br />PARAMETERS = -radio -apply -noclip &quot;[source]&quot;<br />RENAME = FALSE</p>
+<p>NOTICE the action line &quot;RENAME = NONE&quot;. This tells MAREO not to rename the wav file to anything, in effect leaving the original and temporal wav file ready to be encoded.</p>
+<p>Wavegain runs only in &quot;TRACK MODE&quot;.</p>
+<h1>POST-PROCESSORS</h1>
+<p>Post-Processors are programs that process a file after an encoding has occurred. The most common example is MP3Gain. Like Wavegain, MP3Gain is a tool that can take an mp3 file, and &quot;normalize&quot; the sound volume as defined by the user. This has the effect of having all the sound files at the same volume. But MP3Gain normalizes MP3 files, and no WAV files, so we must run it after the MP3 encode. MP3Gain should normally be set up as the next encoder before the MP3 one.</p>
+<p>Assuming the mp3 file compression options was set as follows:</p>
+<p>FINALPATH = C:\Music\[artist] - [album]\<br />FINALNAME = [track]. [title]<br />EXTENSION = mp3</p>
+<p>To use MP3Gain with MAREO then, set the encoder order after the MP3 has been generated as:</p>
+<p>; *** MP3Gain POST-PROCESSING EXAMPLE ***<br />EXECUTEIF = TRUE<br />FINALPATH = C:\Music\[artist] - [album]\<br />FINALNAME = [track]. [title]<br />EXTENSION = mp3<br />ENCODER = mp3gain.exe<br />PARAMETERS = /k /r /s r [destfinalfullname]<br />RENAME = FALSE</p>
+<p>NOTICE the action line &quot;RENAME = FALSE&quot;. This tells MAREO to not try to rename the MP3 file to anything, in effect leaving the MP3 file name as it was.</p>
+<p>Why if renaming is not used, we still need to define PATH, FILENAME, EXTENSION? MAREO pre-process the PATH, FILENAME, and removes any non legal characters. So a original file name as &quot;example: this is it&quot; is transformed by MAREO to &quot;example_ this is it&quot;.</p>
+<h1>ALBUM MODE: RUNNING AFTER ALL THE TRACKS</h1>
+<p>There could be occasions where you would like to run a certain encoder (most likey a post-processor), after all the files have been processed. The most common situation, is to run MP3Gain in ALBUM mode.</p>
+<p>Assuming the mp3 file compression options was set as follows:</p>
+<p>FINALPATH = C:\Music\[artist] - [album]\<br />FINALNAME = [track]. [title]<br />EXTENSION = mp3</p>
+<p>To do run MP3Gain in album mode, you need to define an &quot;encoder order&quot; like this:</p>
+<p>; *** MP3Gain POST-PROCESSING EXAMPLE ***<br />EXECUTEIF = LASTTRACK<br />FINALPATH = C:\Music\[artist] - [album]\<br />FINALNAME = [track]. [title]<br />EXTENSION = mp3<br />ENCODER = mp3gain.exe<br />PARAMETERS = /k /a /s r [finalpath<strong>short</strong>]\*.mp3<br />RENAME = TRUE</p>
+<p>Again, we still need to define PATH, FILENAME, EXTENSION because MAREO use them to create [FINALPATH].</p>
+<p>But here you can see that we are using [FINALPATH<strong>SHORT</strong>] why and what is it?</p>
+<p>[FINALPATH<strong>SHORT</strong>] is the DOS (no spaces) version of [FINALPATH], and is required because mp3gain does not works with paths with spaces.</p>
+<h1>[LASTTRACK]</h1>
+<p>But how does MAREO knows when has the last file been ripped? There is an adittional utility called MAREOlast. If you run MAREOlast it would ask you how many tracks a CD has. You only need to imput a number, like 12, and press enter.</p>
+<p>MAREOlast would then create a file, mareoLAST.INI, that MAREO reads to see how many tracks there are on an album. This value is loaded into the [LASTTRACK] placeholder.</p>
+<h1>MY RIPPER CAN PASS THE LAST TRACK NUMBER!</h1>
+<p>There are rippers that know, and can pass, the number of tracks to MAREO. For example, EAC. So we need to pass MAREO the number of tracks this album has.</p>
+<p>We would normally setup the ripper as: INIFILE SOURCE DESTTMP ARTIST ALBUM TITLE TRACK YEAR GENRE</p>
+<p>But we would be adding the last track as the 10th parameter: INIFILE SOURCE DESTTMP ARTIST ALBUM TITLE TRACK YEAR GENRE TOTALTRACKS</p>
+<p>For EAC, that would be: mareo.ini %s %d &quot;%a&quot; &quot;%g&quot; &quot;%t&quot; &quot;%n&quot; %y &quot;%m&quot; %x</p>
+<p>%x in EAC means &quot;TOTAL NUMBER OF TRACKS&quot;, so we are telling EAC to pass that number to MAREO, as the 10th parameter.</p>
+<p>But how do we use it in MAREO? Instead of defining: EXECUTEIF = LASTTRACK define EXECUTEIF = [1] = [TRACK]</p>
+<p>[1] is the [PLACEHOLDER] for the 10th command sent to MAREO ([2] for the 11th, etc).</p>
+<p>At each run, MAREO would evaluate the formula, and when [1]&#8217;s value, matches the one of [TRACK], it would execute the encoder order.</p>
+<h1>MULTI FILE ENCODERS</h1>
+<p>Multi-File Encoders are encoders that generate two or more files from a single WAV. The most common explanation for such a behavior, is what is called hybrid encoders. Hybrid encoders can produce a &quot;lossy&quot; file, and a &quot;correction&quot; file.</p>
+<p>Basically, one can use the small lossy file to listen to the music, but if the need to recover the original file arises, these encoders can take the info on the lossy file, and with the info on the correction file, produce an exact copy of the original.</p>
+<p>This is an alternative of having a lossless FLAC file for archival, and a lossy MP3 file for playing. The advantage of hybrid encoders, is that usually the lossy+correction files size equals the size of a lossless only file. The most common hybrid encoders are WavPack and OptimFrog. If we want to use MAREO with an encoder that generates 2 files (ore more), we need to create two encoder orders, one for each file:</p>
+<p>; ** NORMAL FILE**<br />EXECUTEIF = TRUE<br />FINALPATH = C:\Music\[artist] - [album]\<br />FINALNAME = [track]. [title]<br />EXTENSION = ofs<br />ENCODER = ofs.exe<br />PARAMETERS = -correction &quot;[source]&quot;<br />RENAME = TRUE</p>
+<p>; ** CORRECTION FILE (RENAME ONLY) **<br />EXECUTEIF = TRUE<br />FINALPATH = C:\Music\[artist] - [album]\<br />FINALNAME = [track]. [title]<br />EXTENSION = ofc<br />ENCODER = NONE<br />PARAMETERS = NONE<br />RENAME = TRUE</p>
+<p>When MAREO encounters ENCODER = NONE it does not executes anything, and then renames the OFC file (created by ofs.exe on the previous encoder order) to the correct name.</p>
+<p><font color="#993366">This is it. Happy ripping!</font></p>
+<h1>FREQUENTLY ASKED QUESTIONS (FAQ)</h1>
+<p>Q: What an INI file is?</p>
+<p>A: An ini file is basically a TXT file that includes information on how a program should behave. Inside the mareo.zip you would see a file called mareo.INI. You can edit it with notepad, is the configuration file for MAREO.</p>
+<p>Q: The fist encoded file is being deleted!</p>
+<p>A: You are probably using EAC, and letting MAREO do all the renaming of files, which is ok, but confuses EAC. If you want MAREO to rename all the files, you must cheat EAC. EAC gets confused when MAREO ends and it can&#8217;t find the encoded file to rename, as MAREO has already renamed it, so out of confusion EAC deletes the file that has matching extension with the one defined in EAC&#8217;s config! So define the extension in EAC config to any one not being actually used, for example XXX. If you set the extension to XXX, EAC can&#8217;t find any matching file, and it goes ok.</p>
+<p>Q: MAREO is not renaming the a file, why?</p>
+<p>A: Change the Rename to TRUE (Rename = TRUE) in the INI file.</p>
+<p>Q: When i tell EAC to not open external compressor, MAREO crashes.</p>
+<p>A: Change LogToFile to FALSE (LogToFile = FALSE) in the INI file.</p>
+<p>Q: Can I ask you some question by email?</p>
+<p>A: No, ask here.</p>
+<p>Q: That&#8217;s it?</p>
+<p>A: Yes.
+</p>
+					<div class="pie">
+						<span class="date">12 / May / 2006</span>&nbsp;
+						<span class="categories"><a href="http://webearce.com.ar/?cat=1" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a></span>&nbsp;
+						<span class="comments">
+							<a href="http://webearce.com.ar/?p=2#respond" title="Comment on MAREO: Multiple Applications Runner for EAC and Others">Comentarios (0)</a>						</span>
+											</div>
+				</div>
+			</div>
+		</div>
+									</div>
+	<div id="footer">
+	<a href="http://wordpress.org/">WordPress</a> + 
+	<a href="feed:http://webearce.com.ar/?feed=rss2">RSS</a> + 
+	<a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional">XHTML</a> + 
+	<a href="http://jigsaw.w3.org/css-validator/check/referer" title="This page validates as CSS">CSS</a><br/>
+	Design made by <a href="http://kino.pandela.net" title="Kino">Kino</a>
+	
+</div>
+</div>
+
+</body>
+</html>
