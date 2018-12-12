@@ -84,9 +84,10 @@ Press F11 or use the menus: EAC =\] Compression Options. Once on the Compression
 1. Parameter passing scheme: User Defined Encoder
 2. Use file extension: the file extension of the first encoder you are going to use(\*)
 3. Program, including path, used for compression: MAREO’s full path
-4. Additional command line options: `mareo.ini %source% %dest% "%artist%" "%albumtitle%" "%title%" "%tracknr1%" %year% "%genre%"` (\*\*)
+4. Additional command line options: `mareo.ini %source% %dest% "%artist%" "%albumtitle%" "%title%" "%tracknr1%" "%year%" "%genre%"` (\*\*)
 5. Add ID3 tag: unchecked
 6. Delete WAV after compression: unchecked
+7. Check for external programs return code: unchecked
 
 IMPORTANT: double quotes (") are used to enclose parameters that can have spaces inside. EAC automatically encloses source (%s) and destination (%d) file names with double quotes (") if required so it is not needed in either case.
 
